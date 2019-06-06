@@ -54,7 +54,7 @@ class StringScroller : public Timed
     }
 public:
     StringScroller(String string, int delay=400): 
-        string(string) // Initialize field from class
+        string(string) // Initialize string field from class
     {
         setDelay(delay);
     }
@@ -111,7 +111,7 @@ class YearDecrementer : public Timed
   int year = 2019;
   int previousState = LOW;
   int dataIN = 2;
-  void _run() override
+  void _run() override // Override run method from Timed class
   {
     auto currentstate = digitalRead(dataIN);
     if(previousState != currentstate){ // If there is change in input and from LOW to HIGH
