@@ -3,12 +3,12 @@
 LiquidCrystal lcd(8,9,4,5,6,7);
 
 unsigned long prevmillis; // To store time
-unsigned long duration; // To store time difference
+unsigned long duration; // To store time difference for one rotation
 unsigned long lcdrefresh; // To store time for LCD refresh
 
 void setup(){
   pinMode(2,INPUT);
-  lcd.begin(16,2);     
+  lcd.begin(16,2); // 2 rows, 16 columns    
   prevmillis = 0;
 }
 
@@ -75,13 +75,13 @@ class LED : public Timed
 
 public:
     LED(int ledPin, long OnTime, long OffTime):
-    ledPin (ledPin), onTime(OnTime), offTime(OffTime) // Initialize fields from class
+    ledPin (ledPin), onTime(OnTime), offTime(OffTime) // Initialize fields from class, ex. onTime=OnTime
     {
       setDelay(offTime);
       pinMode(ledPin, OUTPUT);
     }
 
-    void off()
+    void off() //turns off the led
     {
       ledState = LOW;
       digitalWrite(ledPin, ledState);
